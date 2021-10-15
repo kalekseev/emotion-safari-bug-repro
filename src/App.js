@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+/** @jsxImportSource @emotion/react */
+import * as React from "react";
+import { css } from "@emotion/react";
 
-function App() {
+const App = () => {
+  const [open, setOpen] = React.useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      {!open && (
+        <div
+          css={css`
+            background-color: red;
+          `}
         >
-          Learn React
-        </a>
-      </header>
+          xxx
+        </div>
+      )}
+      {open && (
+        <div
+          css={css`
+            background-color: green;
+          `}
+        >
+          yyy
+        </div>
+      )}
+      <button onClick={() => setOpen(!open)}>Toggle</button>
     </div>
   );
-}
+};
 
 export default App;
